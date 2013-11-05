@@ -8,6 +8,17 @@ Version: 1.0
 Author URI: http://raamdev.com/
 */
 
+
+/**
+ * Register stylesheet
+ */
+function indiepub_spoken_essay_stylesheet() {
+	wp_register_style( 'indiepub-spoken-essay', plugins_url( '/style.css', __FILE__ ), array(), '1.0' );
+	wp_enqueue_style( 'indiepub-spoken-essay' );
+}
+
+add_action( 'wp_enqueue_scripts', 'indiepub_spoken_essay_stylesheet' );
+
 /**
  * Show link to Spoken Essay
  */
@@ -35,5 +46,13 @@ function indiepub_spoken_essay_link( $link_text = 'Listen to the Spoken Essay' )
 	}
 	else {
 		return false;
+	}
+}
+
+add_action( 'independent_publisher_entry_title_meta', 'indiepub_show_spoken_essay', 10, 1 );
+
+function indiepub_show_spoken_essay( $separator ) {
+	if ( indiepub_spoken_essay_url() ) {
+		echo $separator . indiepub_spoken_essay_link();
 	}
 }
