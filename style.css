@@ -15,3 +15,15 @@
 #audio-player img {
 	display: none !important;
 }
+
+.icon-audio::before {
+	content: '\f109';
+	display: inline-block;
+	padding: 0;
+	margin-top: -2px;
+	font-style: normal;
+	font-family: 'Genericons';
+	font-size: 20px;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+}

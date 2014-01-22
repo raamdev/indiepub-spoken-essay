@@ -12,12 +12,13 @@ Author URI: http://raamdev.com/
 /**
  * Register stylesheet
  */
-function indiepub_spoken_essay_stylesheet() {
+function indiepub_spoken_essay_scripts() {
 	wp_register_style( 'indiepub-spoken-essay', plugins_url( '/style.css', __FILE__ ), array(), '1.0' );
+	wp_enqueue_style( 'genericons', plugins_url('/genericons/genericons.css', __FILE__ ), array(), '3.0.3' );
 	wp_enqueue_style( 'indiepub-spoken-essay' );
 }
 
-add_action( 'wp_enqueue_scripts', 'indiepub_spoken_essay_stylesheet' );
+add_action( 'wp_enqueue_scripts', 'indiepub_spoken_essay_scripts' );
 
 /**
  * Show link to Spoken Essay
@@ -42,7 +43,7 @@ function indiepub_spoken_essay_url() {
  */
 function indiepub_spoken_essay_link( $link_text = 'Listen to the Spoken Essay' ) {
 	if ( $audio_link = indiepub_spoken_essay_url() ) {
-		return '<div id="audio-player"><a class="wpaudio" href="' . $audio_link . '"><i class="icon-volume-up"></i> ' . $link_text . '</a></div>';
+		return '<div id="audio-player"><a class="wpaudio" href="' . $audio_link . '"><i class="icon-audio"></i> ' . $link_text . '</a></div>';
 	}
 	else {
 		return false;
