@@ -27,3 +27,9 @@
 	vertical-align: middle;
 	-webkit-font-smoothing: antialiased;
 }
+
+@media only screen and (max-width: 500px) {
+	#audio-player a {
+		letter-spacing: 0 !important;
+	}
+}
